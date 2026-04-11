@@ -1,1 +1,243 @@
-<h1>hola</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nueva Intervención — Cruz Roja</title>
+<link rel="stylesheet" href="{% static 'intervenciones/css/crear_intervencion.css' %}">
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="header-text">
+      <h1>Nueva intervención</h1>
+      <p>Cruz Roja — Gipuzkoa</p>
+    </div>
+    <div style="margin-left:auto">
+      <span class="id-badge">ID auto</span>
+    </div>
+  </div>
+
+  <!-- BASE -->
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>Datos base — comunes a todas las intervenciones</div>
+    <div class="grid">
+      <div class="field">
+        <label>Fecha y hora del aviso</label>
+        <input type="datetime-local">
+      </div>
+      <div class="field">
+        <label>Origen del aviso</label>
+        <select>
+          <option value="">Seleccionar...</option>
+          <option>SOS / 112</option>
+          <option>Salvamento Marítimo</option>
+          <option>Particular</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Responsable que recibe el aviso</label>
+        <input type="text" placeholder="Nombre del responsable">
+      </div>
+      <div class="field">
+        <label>Nº personas afectadas</label>
+        <input type="number" min="0" placeholder="0">
+      </div>
+      <div class="field full">
+        <label>Localización inicial del incidente</label>
+        <input type="text" placeholder="Coordenadas o descripción de zona">
+      </div>
+      <div class="field">
+        <label>Personal movilizado</label>
+        <input type="number" min="0" placeholder="0">
+      </div>
+      <div class="field">
+        <label>Hora de llegada al lugar</label>
+        <input type="datetime-local">
+      </div>
+      <div class="field">
+        <label>Hora de cierre de la intervención</label>
+        <input type="datetime-local">
+      </div>
+      <div class="field">
+        <label>Estado final</label>
+        <select>
+          <option value="">Seleccionar...</option>
+          <option>Activa</option>
+          <option>Resuelta</option>
+          <option>Cancelada — falsa alarma</option>
+          <option>Cancelada — persona localizada antes</option>
+          <option>Cancelada — error de aviso</option>
+        </select>
+      </div>
+      <div class="field full">
+        <label>Observaciones / calidad del dato inicial</label>
+        <textarea placeholder="¿La información inicial era correcta? ¿Cambió en el lugar? Anota cualquier discrepancia relevante."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPO -->
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>Tipo de intervención</div>
+    <div class="tipo-tabs">
+      <button class="tipo-tab" onclick="setTipo('maritima', this)">Marítima</button>
+      <button class="tipo-tab" onclick="setTipo('terrestre', this)">Terrestre</button>
+      <button class="tipo-tab" onclick="setTipo('psicosocial', this)">Psicosocial</button>
+      <button class="tipo-tab" onclick="setTipo('combinada', this)">Combinada</button>
+      <button class="tipo-tab" onclick="setTipo('noclasificada', this)">No clasificada</button>
+    </div>
+    <p class="hint" id="hint-tipo">Selecciona un tipo para ver los campos específicos.</p>
+
+    <!-- MARÍTIMA -->
+    <div id="maritima" class="tipo-section">
+      <div class="sub-card">
+        <div class="sub-title">Campos específicos — marítima</div>
+        <div class="grid">
+          <div class="field"><label>Puerto</label><select><option value="">Seleccionar...</option><option>Donostia</option><option>Pasaia</option><option>Getaria</option><option>Hondarribia</option></select></div>
+          <div class="field">
+            <label>Tipo de servicio / actividad</label>
+            <select>
+              <option value="">Seleccionar...</option>
+              <optgroup label="SAR y rescate"><option>Búsqueda de persona</option><option>Rescate de personas</option><option>Evacuación médica</option><option>Achique</option><option>Apoyo</option><option>Remolque</option><option>Reflotamiento</option><option>Señales de socorro</option><option>Otros SAR</option></optgroup>
+              <optgroup label="Seguridad marítima"><option>Acompañamiento embarcaciones</option><option>Recuperación objeto a la deriva</option><option>Otros seguridad</option></optgroup>
+              <optgroup label="Lucha contra contaminación"><option>Apoyo y operaciones LCC</option><option>Dispersión y contención (barreras)</option><option>Recogida de vertidos</option><option>Toma y verificación de muestras</option><option>Vigilancia programada</option><option>Vigilancia de emergencia</option></optgroup>
+              <optgroup label="Ejercicios"><option>Operativo CCS</option><option>Operativo CRE</option><option>Operativo SASEMAR</option><option>Entrenamiento de unidades</option><option>Formación de tripulación</option></optgroup>
+              <optgroup label="Otros"><option>Colaboración</option><option>Traslado de personas</option><option>Rescate de animales</option></optgroup>
+            </select>
+          </div>
+          <div class="field"><label>Condiciones meteorológicas</label><select><option value="">Seleccionar...</option><option>Buenas</option><option>Moderadas</option><option>Adversas</option></select></div>
+          <div class="field"><label>Visibilidad</label><select><option value="">Seleccionar...</option><option>Alta</option><option>Media</option><option>Baja</option></select></div>
+          <div class="field"><label>Viento</label><select><option value="">Seleccionar...</option><option>Poco</option><option>Moderado</option><option>Mucho</option></select></div>
+          <div class="field"><label>Cruz Roja primera unidad en llegar</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
+          <div class="field"><label>Coordinación con otras agencias</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
+          <div class="field"><label>Recursos utilizados</label><select><option value="">Seleccionar...</option><option>Embarcación nivel A</option><option>Embarcación nivel B</option><option>Embarcación nivel C</option><option>Moto acuática</option></select></div>
+          <div class="field"><label>Resultado</label><select><option value="">Seleccionar...</option><option>Persona localizada — ilesa</option><option>Persona localizada — herida</option><option>Persona localizada — fallecida</option><option>Persona no localizada</option><option>Falsa alarma</option></select></div>
+          <div class="field"><label>Asistencia sanitaria</label><select><option value="">Seleccionar...</option><option>Atendida en el sitio</option><option>Derivada a otro recurso</option><option>Atendida en hospital</option><option>No necesaria</option></select></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TERRESTRE -->
+    <div id="terrestre" class="tipo-section">
+      <div class="sub-card">
+        <div class="sub-title">Campos específicos — terrestre</div>
+        <div class="grid">
+          <div class="field"><label>Tipo de búsqueda</label><select><option value="">Seleccionar...</option><option>Persona extraviada</option><option>Accidente en zona de difícil acceso</option><option>Evacuación</option><option>Apoyo a fuerzas de seguridad</option><option>Otro</option></select></div>
+          <div class="field"><label>Tipo de terreno</label><select><option value="">Seleccionar...</option><option>Montaña</option><option>Bosque</option><option>Urbano</option></select></div>
+          <div class="field"><label>Dificultad de acceso</label><select><option value="">Seleccionar...</option><option>Baja</option><option>Media</option><option>Alta</option></select></div>
+          <div class="field"><label>Tiempo de espera hasta intervención CR</label><select><option value="">Seleccionar...</option><option>Inmediata</option><option>1 – 8 horas</option><option>Más de 8 horas</option></select></div>
+          <div class="field"><label>Helicóptero</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
+          <div class="field"><label>Apoyo logístico de CR</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
+          <div class="field"><label>Coordinación con otras unidades</label><select><option value="">Seleccionar...</option><option>Ertzaintza</option><option>Bomberos</option><option>Sanitarios</option><option>Protección Civil BZ</option><option>Múltiples unidades</option><option>Ninguna</option></select></div>
+          <div class="field"><label>Equipos externos a CR Gipuzkoa</label><select><option value="">Seleccionar...</option><option>Bizkaia</option><option>Álava</option><option>No</option></select></div>
+          <div class="field"><label>Lugar de emergencia</label><select><option value="">Seleccionar...</option><option>Propio territorio</option><option>Otro territorio</option></select></div>
+          <div class="field"><label>Nº vehículos</label><input type="number" min="0" placeholder="0"></div>
+          <div class="field"><label>Nº equipos</label><input type="number" min="0" placeholder="0"></div>
+          <div class="field"><label>Estado de la persona encontrada</label><select><option value="">Seleccionar...</option><option>Ilesa</option><option>Herida leve</option><option>Herida grave</option><option>Fallecida</option><option>No localizada</option></select></div>
+          <div class="field full"><label>Localización de la persona encontrada (coordenadas)</label><input type="text" placeholder="Lat, Lon — punto de localización"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PSICOSOCIAL -->
+    <div id="psicosocial" class="tipo-section">
+      <div class="sub-card">
+        <div class="sub-title">Campos específicos — psicosocial</div>
+        <div class="grid">
+          <div class="field"><label>Tipo de evento desencadenante</label><select><option value="">Seleccionar...</option><option>Accidente de tráfico</option><option>Accidente laboral</option><option>Muerte violenta</option><option>Suicidio</option><option>Muerte súbita</option><option>Catástrofe natural</option><option>Accidente aéreo</option><option>Accidente ferroviario</option><option>Otro</option></select></div>
+          <div class="field"><label>Duración aproximada de la atención (horas)</label><input type="number" min="0" step="0.5" placeholder="0"></div>
+          <div class="field"><label>Familiares / allegados atendidos</label><input type="number" min="0" placeholder="0"></div>
+          <div class="field"><label>Menores entre los afectados</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
+          <div class="field"><label>Derivación a otros servicios</label><select><option value="">Seleccionar...</option><option>No necesaria</option><option>Servicios sociales</option><option>Salud mental</option><option>Osakidetza — urgencias</option><option>Múltiples derivaciones</option></select></div>
+          <div class="field"><label>Familiares presentes coinciden con los notificados</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option><option>Parcialmente</option></select></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMBINADA -->
+    <div id="combinada" class="tipo-section">
+      <div class="combinada-selector">
+        <label>Tipos de intervención implicados</label>
+        <select onchange="setCombinada(this.value)" style="max-width:380px">
+          <option value="">Seleccionar...</option>
+          <option value="mar-ter">Marítima + Terrestre</option>
+          <option value="mar-psi">Marítima + Psicosocial</option>
+          <option value="ter-psi">Terrestre + Psicosocial</option>
+          <option value="mar-ter-psi">Las tres</option>
+        </select>
+      </div>
+
+      <div id="comb-maritima" class="sub-card" style="display:none">
+        <div class="sub-title">Marítima <span class="tag">combinada</span></div>
+        <div class="grid">
+          <div class="field"><label>Puerto</label><select><option value="">Seleccionar...</option><option>Donostia</option><option>Pasaia</option><option>Getaria</option><option>Hondarribia</option></select></div>
+          <div class="field"><label>Tipo de servicio / actividad</label><select><option value="">Seleccionar...</option><optgroup label="SAR y rescate"><option>Búsqueda de persona</option><option>Rescate de personas</option><option>Evacuación médica</option><option>Achique</option><option>Apoyo</option><option>Remolque</option><option>Reflotamiento</option><option>Señales de socorro</option><option>Otros SAR</option></optgroup><optgroup label="Seguridad marítima"><option>Acompañamiento embarcaciones</option><option>Recuperación objeto a la deriva</option><option>Otros seguridad</option></optgroup><optgroup label="Otros"><option>Colaboración</option><option>Traslado de personas</option><option>Rescate de animales</option></optgroup></select></div>
+          <div class="field"><label>Condiciones meteorológicas</label><select><option value="">Seleccionar...</option><option>Buenas</option><option>Moderadas</option><option>Adversas</option></select></div>
+          <div class="field"><label>Visibilidad</label><select><option value="">Seleccionar...</option><option>Alta</option><option>Media</option><option>Baja</option></select></div>
+          <div class="field"><label>Viento</label><select><option value="">Seleccionar...</option><option>Poco</option><option>Moderado</option><option>Mucho</option></select></div>
+          <div class="field"><label>Cruz Roja primera unidad en llegar</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
+          <div class="field"><label>Coordinación con otras agencias</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
+          <div class="field"><label>Recursos utilizados</label><select><option value="">Seleccionar...</option><option>Embarcación nivel A</option><option>Embarcación nivel B</option><option>Embarcación nivel C</option><option>Moto acuática</option></select></div>
+          <div class="field"><label>Resultado</label><select><option value="">Seleccionar...</option><option>Persona localizada — ilesa</option><option>Persona localizada — herida</option><option>Persona localizada — fallecida</option><option>Persona no localizada</option><option>Falsa alarma</option></select></div>
+          <div class="field"><label>Asistencia sanitaria</label><select><option value="">Seleccionar...</option><option>Atendida en el sitio</option><option>Derivada a otro recurso</option><option>Atendida en hospital</option><option>No necesaria</option></select></div>
+        </div>
+      </div>
+
+      <div id="comb-terrestre" class="sub-card" style="display:none">
+        <div class="sub-title">Terrestre <span class="tag">combinada</span></div>
+        <div class="grid">
+          <div class="field"><label>Tipo de búsqueda</label><select><option value="">Seleccionar...</option><option>Persona extraviada</option><option>Accidente en zona de difícil acceso</option><option>Evacuación</option><option>Apoyo a fuerzas de seguridad</option><option>Otro</option></select></div>
+          <div class="field"><label>Tipo de terreno</label><select><option value="">Seleccionar...</option><option>Montaña</option><option>Bosque</option><option>Urbano</option></select></div>
+          <div class="field"><label>Dificultad de acceso</label><select><option value="">Seleccionar...</option><option>Baja</option><option>Media</option><option>Alta</option></select></div>
+          <div class="field"><label>Tiempo de espera hasta intervención CR</label><select><option value="">Seleccionar...</option><option>Inmediata</option><option>1 – 8 horas</option><option>Más de 8 horas</option></select></div>
+          <div class="field"><label>Helicóptero</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
+          <div class="field"><label>Apoyo logístico de CR</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
+          <div class="field"><label>Coordinación con otras unidades</label><select><option value="">Seleccionar...</option><option>Ertzaintza</option><option>Bomberos</option><option>Sanitarios</option><option>Protección Civil BZ</option><option>Múltiples unidades</option><option>Ninguna</option></select></div>
+          <div class="field"><label>Equipos externos a CR Gipuzkoa</label><select><option value="">Seleccionar...</option><option>Bizkaia</option><option>Álava</option><option>No</option></select></div>
+          <div class="field"><label>Lugar de emergencia</label><select><option value="">Seleccionar...</option><option>Propio territorio</option><option>Otro territorio</option></select></div>
+          <div class="field"><label>Nº vehículos</label><input type="number" min="0" placeholder="0"></div>
+          <div class="field"><label>Nº equipos</label><input type="number" min="0" placeholder="0"></div>
+          <div class="field"><label>Estado de la persona encontrada</label><select><option value="">Seleccionar...</option><option>Ilesa</option><option>Herida leve</option><option>Herida grave</option><option>Fallecida</option><option>No localizada</option></select></div>
+          <div class="field full"><label>Localización de la persona encontrada (coordenadas)</label><input type="text" placeholder="Lat, Lon"></div>
+        </div>
+      </div>
+
+      <div id="comb-psicosocial" class="sub-card" style="display:none">
+        <div class="sub-title">Psicosocial <span class="tag">combinada</span></div>
+        <div class="grid">
+          <div class="field"><label>Tipo de evento desencadenante</label><select><option value="">Seleccionar...</option><option>Accidente de tráfico</option><option>Accidente laboral</option><option>Muerte violenta</option><option>Suicidio</option><option>Muerte súbita</option><option>Catástrofe natural</option><option>Accidente aéreo</option><option>Accidente ferroviario</option><option>Otro</option></select></div>
+          <div class="field"><label>Duración aproximada de la atención (horas)</label><input type="number" min="0" step="0.5" placeholder="0"></div>
+          <div class="field"><label>Familiares / allegados atendidos</label><input type="number" min="0" placeholder="0"></div>
+          <div class="field"><label>Menores entre los afectados</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
+          <div class="field"><label>Derivación a otros servicios</label><select><option value="">Seleccionar...</option><option>No necesaria</option><option>Servicios sociales</option><option>Salud mental</option><option>Osakidetza — urgencias</option><option>Múltiples derivaciones</option></select></div>
+          <div class="field"><label>Familiares presentes coinciden con los notificados</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option><option>Parcialmente</option></select></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NO CLASIFICADA -->
+    <div id="noclasificada" class="tipo-section">
+      <div class="sub-card">
+        <div class="sub-title">Emergencia no clasificada</div>
+        <div class="field">
+          <label>Descripción del tipo de emergencia</label>
+          <textarea placeholder="Describe el tipo de intervención que no encaja en las categorías anteriores..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn">Cancelar</button>
+    <button class="btn btn-primary">Guardar intervención</button>
+  </div>
+
+</div>
+
+<script src="{% static 'intervenciones/js/crear_intervencion.js' %}"></script>
+
+</body>
+</html>

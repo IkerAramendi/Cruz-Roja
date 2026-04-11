@@ -1,0 +1,4 @@
+/* Si tipo seccion no tiene visible, se oculta. 
+Si tiene visible se muestra */
+.tipo-section { display: none; }
+.tipo-section.visible { display: block; }
