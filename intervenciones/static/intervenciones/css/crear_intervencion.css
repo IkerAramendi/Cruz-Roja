@@ -1,4 +1,104 @@
-/* Si tipo seccion no tiene visible, se oculta. 
-Si tiene visible se muestra */
-.tipo-section { display: none; }
-.tipo-section.visible { display: block; }
+    /*Cada navegador tiene un estilo por defecto, con esta regla se eliminan se parte de cero */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Variables de colores y estilos para toda la aplicación */
+    :root {
+    --bg: #f5f4f1;
+    --surface: #ffffff;
+    --border: #e2e0db;
+    --text: #1a1917;
+    --text-muted: #6b6860;
+    --accent: #c0392b;
+    --radius: 8px;
+    }
+
+    /* Estilos generales para el cuerpo del documento */
+    body {
+    font-family: 'Georgia', serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 2rem 1rem;
+    }
+
+    /* Contenedor principal centrado con un ancho máximo */
+    .container { max-width: 820px; margin: 0 auto; }
+
+    /* Estilos para las tarjetas de contenido */
+    .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    }
+
+    /* Estilos para los títulos de las tarjetas */
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    /* Para secciones que deben ocupar todo el ancho de la tarjeta */
+    .full { grid-column: 1 / -1; }
+
+    /* Estilos para los campos de formulario */
+    .field { display: flex; flex-direction: column; gap: 5px; }
+
+    /* Estilos para las etiquetas de los campos */
+    label { font-size: 14px; color: #3d3b38; }
+
+    /* Estilos para los elementos de entrada, selección y área de texto */
+    input, select, textarea {
+    font-size: 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 8px 11px;
+    width: 100%;
+    }
+
+    /* Si tipo seccion no tiene visible, se oculta. 
+    Si tiene visible se muestra */
+    .tipo-section { display: none; }
+    .tipo-section.visible { display: block; }
+
+    /* Estilos para las pestañas de selección de tipo de intervención */
+    .tipo-tab {
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    background: var(--bg);
+    margin-bottom: 1rem;
+    }
+
+    /* Estilos para la pestaña activa */
+    .tipo-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+    /* Estilos para las sub-secciones dentro de cada tipo de intervención */
+    .sub-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin-top: .75rem;
+    }
+
+    /* Estilos para el contenedor de acciones (botones) */
+    .actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 1.5rem; }
+
+    /* Estilos para los botones */
+    .btn {
+    padding: 9px 22px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    }
+
+    /* Estilos para el botón primario */
+    .btn-primary { background: var(--accent); color: white; border-color: var(--accent); }
+
+    /* Estilos para el botón secundario */
+    @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+    }
+
+
+

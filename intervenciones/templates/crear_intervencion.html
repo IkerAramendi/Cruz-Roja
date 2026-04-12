@@ -111,9 +111,38 @@
           <div class="field"><label>Condiciones meteorológicas</label><select><option value="">Seleccionar...</option><option>Buenas</option><option>Moderadas</option><option>Adversas</option></select></div>
           <div class="field"><label>Visibilidad</label><select><option value="">Seleccionar...</option><option>Alta</option><option>Media</option><option>Baja</option></select></div>
           <div class="field"><label>Viento</label><select><option value="">Seleccionar...</option><option>Poco</option><option>Moderado</option><option>Mucho</option></select></div>
-          <div class="field"><label>Cruz Roja primera unidad en llegar</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
-          <div class="field"><label>Coordinación con otras agencias</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
-          <div class="field"><label>Recursos utilizados</label><select><option value="">Seleccionar...</option><option>Embarcación nivel A</option><option>Embarcación nivel B</option><option>Embarcación nivel C</option><option>Moto acuática</option></select></div>
+          <div class="field">
+            <label>Cruz Roja primera unidad en llegar</label>
+            <div style="display:flex; gap:1.5rem; padding:8px 0">
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="primera_unidad" value="si"> Sí
+              </label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="primera_unidad" value="no"> No
+              </label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Coordinación con otras agencias</label>
+            <div style="display:flex; gap:1.5rem; padding:8px 0">
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="coordinacion_agencias" value="si"> Sí
+              </label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="coordinacion_agencias" value="no"> No
+              </label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Recursos utilizados</label>
+            <div style="display:flex; flex-direction:column; gap:6px; padding:8px 0">
+              <label><input type="checkbox" name="recursos[]" value="embarcacion_a">- Embarcación nivel A</label>
+              <label><input type="checkbox" name="recursos[]" value="embarcacion_b">- Embarcación nivel B</label>
+              <label><input type="checkbox" name="recursos[]" value="embarcacion_c">- Embarcación nivel C</label>
+              <label><input type="checkbox" name="recursos[]" value="moto">- Moto acuática</label>
+              <label><input type="checkbox" name="recursos[]" value="ninguna">- Ninguna</label>
+            </div>
+          </div>          
           <div class="field"><label>Resultado</label><select><option value="">Seleccionar...</option><option>Persona localizada — ilesa</option><option>Persona localizada — herida</option><option>Persona localizada — fallecida</option><option>Persona no localizada</option><option>Falsa alarma</option></select></div>
           <div class="field"><label>Asistencia sanitaria</label><select><option value="">Seleccionar...</option><option>Atendida en el sitio</option><option>Derivada a otro recurso</option><option>Atendida en hospital</option><option>No necesaria</option></select></div>
         </div>
@@ -129,11 +158,50 @@
           <div class="field"><label>Tipo de terreno</label><select><option value="">Seleccionar...</option><option>Montaña</option><option>Bosque</option><option>Urbano</option></select></div>
           <div class="field"><label>Dificultad de acceso</label><select><option value="">Seleccionar...</option><option>Baja</option><option>Media</option><option>Alta</option></select></div>
           <div class="field"><label>Tiempo de espera hasta intervención CR</label><select><option value="">Seleccionar...</option><option>Inmediata</option><option>1 – 8 horas</option><option>Más de 8 horas</option></select></div>
-          <div class="field"><label>Helicóptero</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
-          <div class="field"><label>Apoyo logístico de CR</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
-          <div class="field"><label>Coordinación con otras unidades</label><select><option value="">Seleccionar...</option><option>Ertzaintza</option><option>Bomberos</option><option>Sanitarios</option><option>Protección Civil BZ</option><option>Múltiples unidades</option><option>Ninguna</option></select></div>
+          <div class="field">
+            <label>Helicóptero</label>
+            <div style="display:flex; gap:1.5rem; padding:8px 0">
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="helicopetro" value="si"> Sí
+              </label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="helicopetro" value="no"> No
+              </label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Apoyo logístico de CR</label>
+            <div style="display:flex; gap:1.5rem; padding:8px 0">
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="apoyo_logistico" value="si"> Sí
+              </label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="apoyo_logistico" value="no"> No
+              </label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Coordinación con otras unidades</label>
+            <div style="display:flex; flex-direction:column; gap:6px; padding:8px 0">
+              <label><input type="checkbox" name="coordinacion[]" value="ertzaintza">- Ertzaintza</label>
+              <label><input type="checkbox" name="coordinacion[]" value="bomberos">- Bomberos</label>
+              <label><input type="checkbox" name="coordinacion[]" value="sanitarios">- Sanitarios</label>
+              <label><input type="checkbox" name="coordinacion[]" value="proteccion_civil">- Protección Civil BZ</label>
+              <label><input type="checkbox" name="coordinacion[]" value="ninguna">- Ninguna</label>
+            </div>
+          </div>          
           <div class="field"><label>Equipos externos a CR Gipuzkoa</label><select><option value="">Seleccionar...</option><option>Bizkaia</option><option>Álava</option><option>No</option></select></div>
-          <div class="field"><label>Lugar de emergencia</label><select><option value="">Seleccionar...</option><option>Propio territorio</option><option>Otro territorio</option></select></div>
+          <div class="field">
+            <label>Lugar emergencia</label>
+            <div style="display:flex; gap:1.5rem; padding:8px 0">
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="lugar_emergencia" value="propio_territorio"> Propio territorio
+              </label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="lugar_emergencia" value="otro_territorio"> Otro territorio
+              </label>
+            </div>
+          </div>
           <div class="field"><label>Nº vehículos</label><input type="number" min="0" placeholder="0"></div>
           <div class="field"><label>Nº equipos</label><input type="number" min="0" placeholder="0"></div>
           <div class="field"><label>Estado de la persona encontrada</label><select><option value="">Seleccionar...</option><option>Ilesa</option><option>Herida leve</option><option>Herida grave</option><option>Fallecida</option><option>No localizada</option></select></div>
@@ -150,9 +218,32 @@
           <div class="field"><label>Tipo de evento desencadenante</label><select><option value="">Seleccionar...</option><option>Accidente de tráfico</option><option>Accidente laboral</option><option>Muerte violenta</option><option>Suicidio</option><option>Muerte súbita</option><option>Catástrofe natural</option><option>Accidente aéreo</option><option>Accidente ferroviario</option><option>Otro</option></select></div>
           <div class="field"><label>Duración aproximada de la atención (horas)</label><input type="number" min="0" step="0.5" placeholder="0"></div>
           <div class="field"><label>Familiares / allegados atendidos</label><input type="number" min="0" placeholder="0"></div>
-          <div class="field"><label>Menores entre los afectados</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
+          <div class="field">
+            <label>Menores entre los afectados</label>
+            <div style="display:flex; gap:1.5rem; padding:8px 0">
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="menores_afectados" value="si">Sí
+              </label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="menores_afectados" value="no"> No
+              </label>
+            </div>
+          </div>
           <div class="field"><label>Derivación a otros servicios</label><select><option value="">Seleccionar...</option><option>No necesaria</option><option>Servicios sociales</option><option>Salud mental</option><option>Osakidetza — urgencias</option><option>Múltiples derivaciones</option></select></div>
-          <div class="field"><label>Familiares presentes coinciden con los notificados</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option><option>Parcialmente</option></select></div>
+          <div class="field">
+            <label>Familiares presentes coinciden con los notificados</label>
+            <div style="display:flex; gap:1.5rem; padding:8px 0">
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="familiares_presentes" value="si">Sí 
+              </label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="familiares_presentes" value="no">No
+              </label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="familiares_presentes" value="parcialmente">Parcialmente
+              </label>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -170,22 +261,55 @@
         </select>
       </div>
 
+      <!-- COMBINADA — MARÍTIMA -->
       <div id="comb-maritima" class="sub-card" style="display:none">
         <div class="sub-title">Marítima <span class="tag">combinada</span></div>
         <div class="grid">
           <div class="field"><label>Puerto</label><select><option value="">Seleccionar...</option><option>Donostia</option><option>Pasaia</option><option>Getaria</option><option>Hondarribia</option></select></div>
-          <div class="field"><label>Tipo de servicio / actividad</label><select><option value="">Seleccionar...</option><optgroup label="SAR y rescate"><option>Búsqueda de persona</option><option>Rescate de personas</option><option>Evacuación médica</option><option>Achique</option><option>Apoyo</option><option>Remolque</option><option>Reflotamiento</option><option>Señales de socorro</option><option>Otros SAR</option></optgroup><optgroup label="Seguridad marítima"><option>Acompañamiento embarcaciones</option><option>Recuperación objeto a la deriva</option><option>Otros seguridad</option></optgroup><optgroup label="Otros"><option>Colaboración</option><option>Traslado de personas</option><option>Rescate de animales</option></optgroup></select></div>
+          <div class="field">
+            <label>Tipo de servicio / actividad</label>
+            <select>
+              <option value="">Seleccionar...</option>
+              <optgroup label="SAR y rescate"><option>Búsqueda de persona</option><option>Rescate de personas</option><option>Evacuación médica</option><option>Achique</option><option>Apoyo</option><option>Remolque</option><option>Reflotamiento</option><option>Señales de socorro</option><option>Otros SAR</option></optgroup>
+              <optgroup label="Seguridad marítima"><option>Acompañamiento embarcaciones</option><option>Recuperación objeto a la deriva</option><option>Otros seguridad</option></optgroup>
+              <optgroup label="Lucha contra contaminación"><option>Apoyo y operaciones LCC</option><option>Dispersión y contención (barreras)</option><option>Recogida de vertidos</option><option>Toma y verificación de muestras</option><option>Vigilancia programada</option><option>Vigilancia de emergencia</option></optgroup>
+              <optgroup label="Ejercicios"><option>Operativo CCS</option><option>Operativo CRE</option><option>Operativo SASEMAR</option><option>Entrenamiento de unidades</option><option>Formación de tripulación</option></optgroup>
+              <optgroup label="Otros"><option>Colaboración</option><option>Traslado de personas</option><option>Rescate de animales</option></optgroup>
+            </select>
+          </div>
           <div class="field"><label>Condiciones meteorológicas</label><select><option value="">Seleccionar...</option><option>Buenas</option><option>Moderadas</option><option>Adversas</option></select></div>
           <div class="field"><label>Visibilidad</label><select><option value="">Seleccionar...</option><option>Alta</option><option>Media</option><option>Baja</option></select></div>
           <div class="field"><label>Viento</label><select><option value="">Seleccionar...</option><option>Poco</option><option>Moderado</option><option>Mucho</option></select></div>
-          <div class="field"><label>Cruz Roja primera unidad en llegar</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
-          <div class="field"><label>Coordinación con otras agencias</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
-          <div class="field"><label>Recursos utilizados</label><select><option value="">Seleccionar...</option><option>Embarcación nivel A</option><option>Embarcación nivel B</option><option>Embarcación nivel C</option><option>Moto acuática</option></select></div>
+          <div class="field">
+            <label>Cruz Roja primera unidad en llegar</label>
+            <div style="display:flex; gap:1.5rem; padding:8px 0">
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="comb_primera_unidad" value="si"> Sí</label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="comb_primera_unidad" value="no"> No</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Coordinación con otras agencias</label>
+            <div style="display:flex; gap:1.5rem; padding:8px 0">
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="comb_coordinacion_agencias" value="si"> Sí</label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="comb_coordinacion_agencias" value="no"> No</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Recursos utilizados</label>
+            <div style="display:flex; flex-direction:column; gap:6px; padding:8px 0">
+              <label><input type="checkbox" name="comb_recursos[]" value="embarcacion_a">- Embarcación nivel A</label>
+              <label><input type="checkbox" name="comb_recursos[]" value="embarcacion_b">- Embarcación nivel B</label>
+              <label><input type="checkbox" name="comb_recursos[]" value="embarcacion_c">- Embarcación nivel C</label>
+              <label><input type="checkbox" name="comb_recursos[]" value="moto">- Moto acuática</label>
+              <label><input type="checkbox" name="comb_recursos[]" value="ninguna">- Ninguna</label>
+            </div>
+          </div>
           <div class="field"><label>Resultado</label><select><option value="">Seleccionar...</option><option>Persona localizada — ilesa</option><option>Persona localizada — herida</option><option>Persona localizada — fallecida</option><option>Persona no localizada</option><option>Falsa alarma</option></select></div>
           <div class="field"><label>Asistencia sanitaria</label><select><option value="">Seleccionar...</option><option>Atendida en el sitio</option><option>Derivada a otro recurso</option><option>Atendida en hospital</option><option>No necesaria</option></select></div>
         </div>
       </div>
 
+      <!-- COMBINADA — TERRESTRE -->
       <div id="comb-terrestre" class="sub-card" style="display:none">
         <div class="sub-title">Terrestre <span class="tag">combinada</span></div>
         <div class="grid">
@@ -193,11 +317,38 @@
           <div class="field"><label>Tipo de terreno</label><select><option value="">Seleccionar...</option><option>Montaña</option><option>Bosque</option><option>Urbano</option></select></div>
           <div class="field"><label>Dificultad de acceso</label><select><option value="">Seleccionar...</option><option>Baja</option><option>Media</option><option>Alta</option></select></div>
           <div class="field"><label>Tiempo de espera hasta intervención CR</label><select><option value="">Seleccionar...</option><option>Inmediata</option><option>1 – 8 horas</option><option>Más de 8 horas</option></select></div>
-          <div class="field"><label>Helicóptero</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
-          <div class="field"><label>Apoyo logístico de CR</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
-          <div class="field"><label>Coordinación con otras unidades</label><select><option value="">Seleccionar...</option><option>Ertzaintza</option><option>Bomberos</option><option>Sanitarios</option><option>Protección Civil BZ</option><option>Múltiples unidades</option><option>Ninguna</option></select></div>
+          <div class="field">
+            <label>Helicóptero</label>
+            <div style="display:flex; gap:1.5rem; padding:8px 0">
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="comb_helicopetro" value="si"> Sí</label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="comb_helicopetro" value="no"> No</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Apoyo logístico de CR</label>
+            <div style="display:flex; gap:1.5rem; padding:8px 0">
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="comb_apoyo_logistico" value="si"> Sí</label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="comb_apoyo_logistico" value="no"> No</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Coordinación con otras unidades</label>
+            <div style="display:flex; flex-direction:column; gap:6px; padding:8px 0">
+              <label><input type="checkbox" name="comb_coordinacion[]" value="ertzaintza">- Ertzaintza</label>
+              <label><input type="checkbox" name="comb_coordinacion[]" value="bomberos">- Bomberos</label>
+              <label><input type="checkbox" name="comb_coordinacion[]" value="sanitarios">- Sanitarios</label>
+              <label><input type="checkbox" name="comb_coordinacion[]" value="proteccion_civil">- Protección Civil BZ</label>
+              <label><input type="checkbox" name="comb_coordinacion[]" value="ninguna">- Ninguna</label>
+            </div>
+          </div>
           <div class="field"><label>Equipos externos a CR Gipuzkoa</label><select><option value="">Seleccionar...</option><option>Bizkaia</option><option>Álava</option><option>No</option></select></div>
-          <div class="field"><label>Lugar de emergencia</label><select><option value="">Seleccionar...</option><option>Propio territorio</option><option>Otro territorio</option></select></div>
+          <div class="field">
+            <label>Lugar emergencia</label>
+            <div style="display:flex; gap:1.5rem; padding:8px 0">
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="comb_lugar_emergencia" value="propio_territorio"> Propio territorio</label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="comb_lugar_emergencia" value="otro_territorio"> Otro territorio</label>
+            </div>
+          </div>
           <div class="field"><label>Nº vehículos</label><input type="number" min="0" placeholder="0"></div>
           <div class="field"><label>Nº equipos</label><input type="number" min="0" placeholder="0"></div>
           <div class="field"><label>Estado de la persona encontrada</label><select><option value="">Seleccionar...</option><option>Ilesa</option><option>Herida leve</option><option>Herida grave</option><option>Fallecida</option><option>No localizada</option></select></div>
@@ -205,19 +356,32 @@
         </div>
       </div>
 
+      <!-- COMBINADA — PSICOSOCIAL -->
       <div id="comb-psicosocial" class="sub-card" style="display:none">
         <div class="sub-title">Psicosocial <span class="tag">combinada</span></div>
         <div class="grid">
           <div class="field"><label>Tipo de evento desencadenante</label><select><option value="">Seleccionar...</option><option>Accidente de tráfico</option><option>Accidente laboral</option><option>Muerte violenta</option><option>Suicidio</option><option>Muerte súbita</option><option>Catástrofe natural</option><option>Accidente aéreo</option><option>Accidente ferroviario</option><option>Otro</option></select></div>
           <div class="field"><label>Duración aproximada de la atención (horas)</label><input type="number" min="0" step="0.5" placeholder="0"></div>
           <div class="field"><label>Familiares / allegados atendidos</label><input type="number" min="0" placeholder="0"></div>
-          <div class="field"><label>Menores entre los afectados</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option></select></div>
+          <div class="field">
+            <label>Menores entre los afectados</label>
+            <div style="display:flex; gap:1.5rem; padding:8px 0">
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="comb_menores_afectados" value="si"> Sí</label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="comb_menores_afectados" value="no"> No</label>
+            </div>
+          </div>
           <div class="field"><label>Derivación a otros servicios</label><select><option value="">Seleccionar...</option><option>No necesaria</option><option>Servicios sociales</option><option>Salud mental</option><option>Osakidetza — urgencias</option><option>Múltiples derivaciones</option></select></div>
-          <div class="field"><label>Familiares presentes coinciden con los notificados</label><select><option value="">Seleccionar...</option><option>Sí</option><option>No</option><option>Parcialmente</option></select></div>
+          <div class="field">
+            <label>Familiares presentes coinciden con los notificados</label>
+            <div style="display:flex; gap:1.5rem; padding:8px 0">
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="comb_familiares_presentes" value="si"> Sí</label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="comb_familiares_presentes" value="no"> No</label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="comb_familiares_presentes" value="parcialmente"> Parcialmente</label>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
     <!-- NO CLASIFICADA -->
     <div id="noclasificada" class="tipo-section">
       <div class="sub-card">
