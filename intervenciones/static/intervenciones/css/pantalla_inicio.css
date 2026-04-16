@@ -1,0 +1,156 @@
+/* Estilos para el encabezado de la pantalla de inicio */
+  .home-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+/*Estilos para el contenedor principal */
+  .home-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+  }
+/* Estilos para el logo de la pantalla de inicio */
+/*  .home-logo {
+    width: 56px;
+    height: 56px;
+    background: var(--accent);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+  } 
+ 
+  .home-logo svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+  }*/
+ /* Estilos para el título y subtítulo del encabezado */
+  .home-header h1 {
+    font-size: 26px;
+    font-weight: normal;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+ /* Estilos para el subtítulo del encabezado */
+  .home-header p {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: .05em;
+  }
+ /* Estilos para el contenedor de las tarjetas de navegación */
+  .nav-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 100%;
+    max-width: 720px;
+  }
+ /* Estilos para cada tarjeta de navegación */
+  .nav-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg, 12px);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color .15s, box-shadow .15s;
+  }
+ /* Efecto hover para las tarjetas de navegación */
+  .nav-card:hover {
+    border-color: var(--accent);
+  }
+ /* Estilos para el ícono svg dentro de cada tarjeta de navegación */
+  .nav-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: var(--accent-light, #fdf2f1);
+    border: 1px solid var(--accent-border, #e8b4b0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+ 
+  .nav-card-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+ /* Estilos para el texto dentro de cada tarjeta de navegación */
+  .nav-card-text {
+    text-align: center;
+  }
+ 
+  .nav-card-text h2 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+    font-family: 'Georgia', serif;
+  }
+ 
+  .nav-card-text p {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  
+ /* Estilos para el pie de página de la pantalla de inicio */
+  .home-footer {
+    margin-top: 3rem;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+ 
+  @media (max-width: 600px) {
+    .nav-cards { grid-template-columns: 1fr; max-width: 340px; }
+  }
+
+      /*Cada navegador tiene un estilo por defecto, con esta regla se eliminan se parte de cero */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Variables de colores y estilos para toda la aplicación */
+    :root {
+    --bg: #f5f4f1;
+    --surface: #ffffff;
+    --border: #e2e0db;
+    --text: #1a1917;
+    --text-muted: #6b6860;
+    --accent: #c0392b;
+    --radius: 8px;
+    }
+
+    /* Estilos generales para el cuerpo del documento */
+    body {
+    font-family: 'Georgia', serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 2rem 1rem;
+    }
+
+
+
+
+
+
+  
+
+

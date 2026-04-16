@@ -21,4 +21,5 @@ from intervenciones import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('crearIntervencion/', views.crear_intervencion, name='crear_intervencion'),
+    path('pantallaInicio/', views.pantalla_inicio, name='pantalla_inicio'),
 ]

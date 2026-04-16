@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla de Inicio - Cruz Roja</title>
+    <link rel="stylesheet" href="{% static 'intervenciones/css/pantalla_inicio.css' %}">
+</head>
+<body>
+<div class="home-container">
+  <div class="home-header">
+    <!-- <div class="home-logo">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <rect x="9" y="2" width="6" height="20" rx="1"/>
+        <rect x="2" y="9" width="20" height="6" rx="1"/>
+      </svg>
+    </div> -->
+    <h1>Cruz Roja — Gipuzkoa</h1>
+    <p>Sistema de gestión de intervenciones de salvamento</p>
+  </div>
+  <div class="nav-cards">
+
+    <!-- Crear intervención -->
+    <a href="{% url 'crear_intervencion' %}" class="nav-card">
+      <div class="nav-card-icon">
+        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+      <div class="nav-card-text">
+        <h2>Nueva intervención</h2>
+        <p>Registrar una intervención nueva</p>
+      </div>
+    </a>
+
+    <!-- Historial -->
+    <a href="#" class="nav-card">
+      <div class="nav-card-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="8" y2="14"/><line x1="12" y1="14" x2="12" y2="14"/><line x1="16" y1="14" x2="16" y2="14"/></svg>
+      </div>
+      <div class="nav-card-text">
+        <h2>Historial</h2>
+        <p>Ver y filtrar intervenciones registradas</p>
+      </div>
+    </a>
+
+    <!-- Power BI -->
+    <a href="#" class="nav-card">
+      <div class="nav-card-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg>
+      </div>
+      <div class="nav-card-text">
+        <h2>Dashboards</h2>
+        <p>Análisis y visualización en Power BI</p>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="home-footer">
+    Cruz Roja Española — Asamblea de Gipuzkoa
+  </div>
+</div>
+</body>
+</html>
