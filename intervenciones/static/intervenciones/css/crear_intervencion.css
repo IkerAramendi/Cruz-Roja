@@ -44,7 +44,7 @@
     label { font-size: 14px; color: #3d3b38; }
 
     /* Estilos para los elementos de entrada, selección y área de texto */
-    input, select, textarea {
+    input:not([type="checkbox"]), select, textarea {
     font-size: 14px;
     background: var(--bg);
     border: 1px solid var(--border);

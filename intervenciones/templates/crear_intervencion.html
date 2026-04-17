@@ -73,7 +73,6 @@
           <option>Resuelta</option>
           <option>Cancelada — falsa alarma</option>
           <option>Cancelada — persona localizada antes</option>
-          <option>Cancelada — error de aviso</option>
         </select>
       </div>
       <div class="field full">
@@ -138,13 +137,24 @@
             </div>
           </div>
           <div class="field">
+            <label>Helicóptero</label>
+            <div style="display:flex; gap:1.5rem; padding:8px 0">
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="helicopetro_maritimo" value="si"> Sí
+              </label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="helicopetro_maritimo" value="no"> No
+              </label>
+            </div>
+          </div>
+          <div class="field">
             <label>Recursos utilizados</label>
             <div style="display:flex; flex-direction:column; gap:6px; padding:8px 0">
-              <label><input type="checkbox" name="recursos[]" value="embarcacion_a">- Embarcación nivel A</label>
-              <label><input type="checkbox" name="recursos[]" value="embarcacion_b">- Embarcación nivel B</label>
-              <label><input type="checkbox" name="recursos[]" value="embarcacion_c">- Embarcación nivel C</label>
-              <label><input type="checkbox" name="recursos[]" value="moto">- Moto acuática</label>
-              <label><input type="checkbox" name="recursos[]" value="ninguna">- Ninguna</label>
+              <label><input type="checkbox" name="recursos[]" value="embarcacion_a"> Embarcación nivel A</label>
+              <label><input type="checkbox" name="recursos[]" value="embarcacion_b"> Embarcación nivel B</label>
+              <label><input type="checkbox" name="recursos[]" value="embarcacion_c"> Embarcación nivel C</label>
+              <label><input type="checkbox" name="recursos[]" value="moto"> Moto acuática</label>
+              <label><input type="checkbox" name="recursos[]" value="ninguna"> Ninguna</label>
             </div>
           </div>          
           <div class="field"><label>Resultado</label><select><option value="">Seleccionar...</option><option>Persona localizada — ilesa</option><option>Persona localizada — herida</option><option>Persona localizada — fallecida</option><option>Persona no localizada</option><option>Falsa alarma</option></select></div>
@@ -158,7 +168,7 @@
       <div class="sub-card">
         <div class="sub-title">Campos específicos — terrestre</div>
         <div class="grid">
-          <div class="field"><label>Tipo de búsqueda</label><select><option value="">Seleccionar...</option><option>Persona extraviada</option><option>Accidente en zona de difícil acceso</option><option>Evacuación</option><option>Apoyo a fuerzas de seguridad</option><option>Otro</option></select></div>
+          <div class="field"><label>Tipo de incidente</label><select><option value="">Seleccionar...</option><option>Persona extraviada</option><option>Accidente en zona de difícil acceso</option><option>Evacuación</option><option>Apoyo a fuerzas de seguridad</option><option>Otro</option></select></div>
           <div class="field"><label>Tipo de terreno</label><select><option value="">Seleccionar...</option><option>Montaña</option><option>Bosque</option><option>Urbano</option></select></div>
           <div class="field"><label>Dificultad de acceso</label><select><option value="">Seleccionar...</option><option>Baja</option><option>Media</option><option>Alta</option></select></div>
           <div class="field"><label>Tiempo de espera hasta intervención CR</label><select><option value="">Seleccionar...</option><option>Inmediata</option><option>1 – 8 horas</option><option>Más de 8 horas</option></select></div>
@@ -166,10 +176,10 @@
             <label>Helicóptero</label>
             <div style="display:flex; gap:1.5rem; padding:8px 0">
               <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
-                <input type="radio" name="helicopetro" value="si"> Sí
+                <input type="radio" name="helicopetro_terrestre" value="si"> Sí
               </label>
               <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
-                <input type="radio" name="helicopetro" value="no"> No
+                <input type="radio" name="helicopetro_terrestre" value="no"> No
               </label>
             </div>
           </div>
@@ -187,11 +197,11 @@
           <div class="field">
             <label>Coordinación con otras unidades</label>
             <div style="display:flex; flex-direction:column; gap:6px; padding:8px 0">
-              <label><input type="checkbox" name="coordinacion[]" value="ertzaintza">- Ertzaintza</label>
-              <label><input type="checkbox" name="coordinacion[]" value="bomberos">- Bomberos</label>
-              <label><input type="checkbox" name="coordinacion[]" value="sanitarios">- Sanitarios</label>
-              <label><input type="checkbox" name="coordinacion[]" value="proteccion_civil">- Protección Civil BZ</label>
-              <label><input type="checkbox" name="coordinacion[]" value="ninguna">- Ninguna</label>
+              <label><input type="checkbox" name="coordinacion[]" value="ertzaintza"> Ertzaintza</label>
+              <label><input type="checkbox" name="coordinacion[]" value="bomberos"> Bomberos</label>
+              <label><input type="checkbox" name="coordinacion[]" value="sanitarios"> Sanitarios</label>
+              <label><input type="checkbox" name="coordinacion[]" value="proteccion_civil"> Protección Civil BZ</label>
+              <label><input type="checkbox" name="coordinacion[]" value="ninguna"> Ninguna</label>
             </div>
           </div>          
           <div class="field"><label>Equipos externos a CR Gipuzkoa</label><select><option value="">Seleccionar...</option><option>Bizkaia</option><option>Álava</option><option>No</option></select></div>
@@ -209,7 +219,7 @@
           <div class="field"><label>Nº vehículos</label><input type="number" min="0" placeholder="0"></div>
           <div class="field"><label>Nº equipos</label><input type="number" min="0" placeholder="0"></div>
           <div class="field"><label>Estado de la persona encontrada</label><select><option value="">Seleccionar...</option><option>Ilesa</option><option>Herida leve</option><option>Herida grave</option><option>Fallecida</option><option>No localizada</option></select></div>
-          <div class="field full"><label>Localización de la persona encontrada (coordenadas)</label><input type="text" placeholder="Lat, Lon — punto de localización"></div>
+          <div class="field full"><label>Localización de la persona encontrada (coordenadas)</label><input type="text" placeholder="Ej: 43.3234, -1.9876"></div>
         </div>
       </div>
     </div>
@@ -299,13 +309,24 @@
             </div>
           </div>
           <div class="field">
+            <label>Helicóptero</label>
+            <div style="display:flex; gap:1.5rem; padding:8px 0">
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="helicopetro_maritimo_comb" value="si"> Sí
+              </label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
+                <input type="radio" name="helicopetro_maritimo_comb" value="no"> No
+              </label>
+            </div>
+          </div>
+          <div class="field">
             <label>Recursos utilizados</label>
             <div style="display:flex; flex-direction:column; gap:6px; padding:8px 0">
-              <label><input type="checkbox" name="comb_recursos[]" value="embarcacion_a">- Embarcación nivel A</label>
-              <label><input type="checkbox" name="comb_recursos[]" value="embarcacion_b">- Embarcación nivel B</label>
-              <label><input type="checkbox" name="comb_recursos[]" value="embarcacion_c">- Embarcación nivel C</label>
-              <label><input type="checkbox" name="comb_recursos[]" value="moto">- Moto acuática</label>
-              <label><input type="checkbox" name="comb_recursos[]" value="ninguna">- Ninguna</label>
+              <label><input type="checkbox" name="comb_recursos[]" value="embarcacion_a"> Embarcación nivel A</label>
+              <label><input type="checkbox" name="comb_recursos[]" value="embarcacion_b"> Embarcación nivel B</label>
+              <label><input type="checkbox" name="comb_recursos[]" value="embarcacion_c"> Embarcación nivel C</label>
+              <label><input type="checkbox" name="comb_recursos[]" value="moto"> Moto acuática</label>
+              <label><input type="checkbox" name="comb_recursos[]" value="ninguna"> Ninguna</label>
             </div>
           </div>
           <div class="field"><label>Resultado</label><select><option value="">Seleccionar...</option><option>Persona localizada — ilesa</option><option>Persona localizada — herida</option><option>Persona localizada — fallecida</option><option>Persona no localizada</option><option>Falsa alarma</option></select></div>
@@ -324,8 +345,8 @@
           <div class="field">
             <label>Helicóptero</label>
             <div style="display:flex; gap:1.5rem; padding:8px 0">
-              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="comb_helicopetro" value="si"> Sí</label>
-              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="comb_helicopetro" value="no"> No</label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="helicopetro_terrestre_comb" value="si"> Sí</label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="helicopetro_terrestre_comb" value="no"> No</label>
             </div>
           </div>
           <div class="field">
@@ -338,11 +359,11 @@
           <div class="field">
             <label>Coordinación con otras unidades</label>
             <div style="display:flex; flex-direction:column; gap:6px; padding:8px 0">
-              <label><input type="checkbox" name="comb_coordinacion[]" value="ertzaintza">- Ertzaintza</label>
-              <label><input type="checkbox" name="comb_coordinacion[]" value="bomberos">- Bomberos</label>
-              <label><input type="checkbox" name="comb_coordinacion[]" value="sanitarios">- Sanitarios</label>
-              <label><input type="checkbox" name="comb_coordinacion[]" value="proteccion_civil">- Protección Civil BZ</label>
-              <label><input type="checkbox" name="comb_coordinacion[]" value="ninguna">- Ninguna</label>
+              <label><input type="checkbox" name="comb_coordinacion[]" value="ertzaintza"> Ertzaintza</label>
+              <label><input type="checkbox" name="comb_coordinacion[]" value="bomberos"> Bomberos</label>
+              <label><input type="checkbox" name="comb_coordinacion[]" value="sanitarios"> Sanitarios</label>
+              <label><input type="checkbox" name="comb_coordinacion[]" value="proteccion_civil"> Protección Civil BZ</label>
+              <label><input type="checkbox" name="comb_coordinacion[]" value="ninguna"> Ninguna</label>
             </div>
           </div>
           <div class="field"><label>Equipos externos a CR Gipuzkoa</label><select><option value="">Seleccionar...</option><option>Bizkaia</option><option>Álava</option><option>No</option></select></div>
