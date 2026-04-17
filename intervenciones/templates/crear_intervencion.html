@@ -45,16 +45,29 @@
         <label>Nº personas afectadas</label>
         <input type="number" min="0" placeholder="0">
       </div>
+         <div class="field full">
+        <label>Zona inicial</label> <!-- Empieza a escribir y selecciona una opción -> modifica mapa -->
+        <input type="text" placeholder="Ej: Jaizkibel, Puerto de Pasaia, Playa de la Concha...">
+      </div>
+      <div class="field">
+        <label>Calidad del dato inicial</label>
+        <select>
+          <option value="">Seleccionar...</option>
+          <option>Correcta</option>
+          <option>Aproximada</option>
+          <option>Incorrecta</option>
+        </select>
+      </div>
       <div class="field full">
-        <label>Zona</label> <!-- Empieza a escribir y selecciona una opción -> modifica mapa -->
+        <label>Zona final</label> <!-- Empieza a escribir y selecciona una opción -> modifica mapa -->
         <input type="text" placeholder="Ej: Jaizkibel, Puerto de Pasaia, Playa de la Concha...">
       </div>
       <div class="field full"> <!-- Empieza escribe las coordenadas-> modifica mapa -->
-        <label>Coordenadas</label>
+        <label>Coordenadas finales (No rellenar si ya se ha rellenado la zona final)</label>
         <input type="text" placeholder="Ej: 43.3234, -1.9876">
       </div>
       <div class="field full"> <!-- Empieza escribe las coordenadas-> modifica mapa -->
-        <label>Mapa</label>
+        <label>Mapa localización final</label>
       </div>
       <div class="field">
         <label>Personal movilizado</label>
@@ -79,7 +92,7 @@
         </select>
       </div>
       <div class="field full">
-        <label>Observaciones / calidad del dato inicial</label>
+        <label>Observaciones</label>
         <textarea placeholder="¿La información inicial era correcta? ¿Cambió en el lugar? Anota cualquier discrepancia relevante."></textarea>
       </div>
     </div>
