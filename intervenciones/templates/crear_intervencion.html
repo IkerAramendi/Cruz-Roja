@@ -76,10 +76,11 @@
         <label>Estado final</label>
         <select>
           <option value="">Seleccionar...</option>
-          <option>Resuelta — con éxito</option>
-          <option>Resuelta — sin éxito</option>
+          <option>Resuelta — por Cruz Roja</option>
+          <option>Resuelta — por intervenientes fuera de Cruz Roja</option>
+          <option>Resuelta — posteriormente (búsqueda pasiva/hallazgo días después)</option>
           <option>Cancelada — falsa alarma</option>
-          <option>Cancelada — persona localizada antes</option>
+          <option>Cancelada — situación resuelta previamente por terceros</option>
         </select>
       </div>
       <div class="field full">
@@ -184,7 +185,7 @@
       <div class="sub-card">
         <div class="sub-title">Campos específicos — terrestre</div>
         <div class="grid">
-          <div class="field"><label>Tipo de incidente</label><select><option value="">Seleccionar...</option><option>Persona extraviada</option><option>Accidente en zona de difícil acceso</option><option>Evacuación</option><option>Apoyo a fuerzas de seguridad</option><option>Otro</option></select></div>
+          <div class="field"><label>Tipo de incidente</label><select><option value="">Seleccionar...</option><option>Persona desaparecida</option><option>Accidente en zona de difícil acceso</option><option>Evacuación</option><option>Otro</option></select></div>
           <div class="field">
             <label>Asamblea que participa</label>
             <div style="display:flex; flex-direction:column; gap:6px; padding:8px 0">
@@ -198,11 +199,17 @@
           <div class="field">
             <label>Dificultad de acceso</label>
             <div style="display:flex; gap:1.5rem; padding:8px 0">
-              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="dificultad_acceso_comb" value="si"> Sí</label>
-              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="dificultad_acceso_comb" value="no"> No</label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="dificultad_acceso" value="si"> Sí</label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="dificultad_acceso" value="no"> No</label>
             </div>
           </div>
-          <div class="field"><label>Dificultad de acceso</label><select><option value="">Seleccionar...</option><option>Baja</option><option>Media</option><option>Alta</option></select></div>
+          <div class="field">
+            <label>Fenómenos meteorológicos adversos</label>
+            <div style="display:flex; gap:1.5rem; padding:8px 0">
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="fenomenos_meteorologicos" value="si"> Sí</label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="fenomenos_meteorologicos" value="no"> No</label>
+            </div>
+          </div>
           <div class="field"><label>Tiempo de espera hasta intervención CR</label><select><option value="">Seleccionar...</option><option>Desconocido</option><option>Inmediata</option><option>1 – 8 horas</option><option>Más de 8 horas</option></select></div>
           <div class="field">
             <label>Helicóptero</label>
@@ -239,13 +246,6 @@
           </div>          
           <div class="field"><label>Equipos externos a CR Gipuzkoa</label><select><option value="">Seleccionar...</option><option>Bizkaia</option><option>Álava</option><option>Ambos</option><option>No</option></select></div>
           <div class="field">
-            <label>¿Por quién fue localizada la persona?</label>
-            <div style="display:flex; gap:1.5rem; padding:8px 0">
-              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="por_quien_localizada" value="intervenientes"> Por los intervenientes</label>
-              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="por_quien_localizada" value="pasiva"> Búsqueda pasiva</label>
-            </div>
-          </div>
-          <div class="field">
             <label>Lugar emergencia</label>
             <div style="display:flex; gap:1.5rem; padding:8px 0">
               <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)">
@@ -257,7 +257,7 @@
             </div>
           </div>
           <div class="field"><label>Nº vehículos</label><input type="number" min="0" placeholder="0"></div>
-          <div class="field"><label>Estado de la persona encontrada</label><select><option value="">Seleccionar...</option><option>Ilesa</option><option>Herida leve</option><option>Herida grave</option><option>Fallecida</option><option>No localizada</option><option>Localizada después de la intervención</option></select></div>
+          <div class="field"><label>Estado de la persona encontrada</label><select><option value="">Seleccionar...</option><option>Ilesa</option><option>Herida leve</option><option>Herida grave</option><option>Fallecida</option><option>No sé sabe</option></select></div>
         </div>
       </div>
     </div>
@@ -402,7 +402,7 @@
               <label><input type="checkbox" name="comb_asamblea[]" value="proteccion_civil"> Bidasoaldea</label>
         </div>
         <div class="grid">
-          <div class="field"><label>Tipo de incidente</label><select><option value="">Seleccionar...</option><option>Persona extraviada</option><option>Accidente en zona de difícil acceso</option><option>Evacuación</option><option>Apoyo a fuerzas de seguridad</option><option>Otro</option></select></div>
+          <div class="field"><label>Tipo de incidente</label><select><option value="">Seleccionar...</option><option>Persona extraviada</option><option>Accidente en zona de difícil acceso</option><option>Evacuación</option><option>Otro</option></select></div>
           <div class="field"><label>Tipo de terreno</label><select><option value="">Seleccionar...</option><option>Montaña</option><option>Rural</option><option>Urbano</option><option>Periurbano</option></select></div>
           <div class="field">
             <label>Dificultad de acceso</label>
@@ -410,7 +410,14 @@
               <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="dificultad_acceso_comb" value="si"> Sí</label>
               <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="dificultad_acceso_comb" value="no"> No</label>
             </div>
-          </div>          
+          </div> 
+          <div class="field">
+            <label>Fenómenos meteorológicos adversos</label>
+            <div style="display:flex; gap:1.5rem; padding:8px 0">
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="fenomenos_meteorologicos_comb" value="si"> Sí</label>
+              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="fenomenos_meteorologicos_comb" value="no"> No</label>
+            </div>
+          </div>         
           <div class="field"><label>Tiempo de espera hasta intervención CR</label><select><option value="">Seleccionar...</option><option>Desconocido</option><option>Inmediata</option><option>1 – 8 horas</option><option>Más de 8 horas</option></select></div>
           <div class="field">
             <label>Helicóptero</label>
@@ -439,13 +446,6 @@
           </div>
           <div class="field"><label>Equipos externos a CR Gipuzkoa</label><select><option value="">Seleccionar...</option><option>Bizkaia</option><option>Álava</option><option>Ambos</option><option>No</option></select></div>
           <div class="field">
-            <label>¿Por quién fue localizada la persona?</label>
-            <div style="display:flex; gap:1.5rem; padding:8px 0">
-              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="por_quien_localizada_comb" value="intervenientes"> Por los intervenientes</label>
-              <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="por_quien_localizada_comb" value="pasiva"> Búsqueda pasiva</label>
-            </div>
-          </div>
-          <div class="field">
             <label>Lugar emergencia</label>
             <div style="display:flex; gap:1.5rem; padding:8px 0">
               <label style="display:flex; align-items:center; gap:6px; font-size:14px; color:var(--text)"><input type="radio" name="comb_lugar_emergencia" value="propio_territorio"> Propio territorio</label>
@@ -453,7 +453,7 @@
             </div>
           </div>
           <div class="field"><label>Nº vehículos</label><input type="number" min="0" placeholder="0"></div>
-          <div class="field"><label>Estado de la persona encontrada</label><select><option value="">Seleccionar...</option><option>Ilesa</option><option>Herida leve</option><option>Herida grave</option><option>Fallecida</option><option>No localizada</option><option>Localizada después de la intervención</option></select></div>
+          <div class="field"><label>Estado de la persona encontrada</label><select><option value="">Seleccionar...</option><option>Ilesa</option><option>Herida leve</option><option>Herida grave</option><option>Fallecida</option><option>No sé sabe</option></select></div>
         </div>
       </div>
 
